@@ -1,23 +1,20 @@
-// 1. IMPORTACIONES
-const router = require("express").Router()
+// Imports
+const router = require('express').Router()
 
-// (Destructuracion de objeto, retiro la propiedad y la meto en variables)
 const { 
-    getSignUp,
-    getLogin
-} = require("./../controllers/auth.controller")
+    getSignup,
+    postSignup,
+    getLogin,
+} = require('./../controllers/auth.controller')
 
+// Routes
+// Signup
+router.get('/signup', getSignup)
+router.post('/signup', postSignup)
 
-
-// 2. RUTAS 
-
-router.get("/signup", getSignUp)
-
+// Login
 router.get('/login', getLogin)
 
-
-
-// 3. EXPORTS
-
+// Export
 module.exports = router
 

@@ -1,7 +1,5 @@
-
-
-// 1. Imports
-
+// app.js
+// Imports
 const express = require('express')
 const app = express()
 
@@ -9,12 +7,9 @@ require('dotenv/config')
 
 const path = require('path')
 
-const connectDB = require("./db")
+const connectDB = require('./db')
 
-
-
-// 2. Middlewares
-
+// Middlewares
 // Static files - HTML CSS JS IMAGES
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -25,19 +20,14 @@ app.set('view engine', 'hbs')
 // To use req.body
 app.use(express.urlencoded({ extended: true }))
 
-
 connectDB()
-
-
-// 3. Routes
-
+// Routes
 // Home
 app.use('/', require('./routes'))
 
-// Auth
+// Login y signup
 app.use('/auth', require('./routes/auth.router'))
 
-
-// 4. Export
-
+// Export
 module.exports = app
+
